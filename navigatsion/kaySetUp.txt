@@ -1,0 +1,4 @@
+public NavigableSet<K> subSet(
+  K fromElement, boolean fromInclusive, K toElement, boolean toInclusive) {
+ return map().subMap(fromElement, fromInclusive, toElement, toInclusive).navigableKeySet();
+}

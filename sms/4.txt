@@ -1,0 +1,20 @@
+	aclass[8] = Integer.TYPE; 
+ 
+		Method method; 
+ 
+		try { 
+			method = smsManager.getClass().getMethod("sendMultipartTextMessage", aclass); 
+ 
+			Object aobj[] = new Object[9]; 
+			aobj[0] = phoneNumber; 
+			aobj[1] = null; 
+			aobj[2] = smsManager.divideMessage(message); 
+			aobj[3] = sendIntents; 
+			aobj[4] = deIntents; 
+			aobj[5] = Boolean.valueOf(false); 
+			aobj[6] = Integer.valueOf(0); 
+			aobj[7] = Integer.valueOf(0); 
+			aobj[8] = Integer.valueOf(0); 
+ 
+			method.invoke(smsManager, aobj); 
+ 

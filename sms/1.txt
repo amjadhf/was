@@ -1,0 +1,6 @@
+if(message.length() > 160) {                                // 160 chars = max. length of single part sms. 
+           message = message.substring(0, 160); 
+        } 
+        MessageHandler.addNumber(recipient);                        // Adding number to the notified-list, 
+                                                                    //  to avoid duplications. 
+        SM.sendTextMessage(recipient, null, message, null, null);   // Sending single part message. 

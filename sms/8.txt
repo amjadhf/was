@@ -1,0 +1,20 @@
+	alert.show(); 
+    } 
+    public void dispatchSMS () 
+    { 
+    	//sm.sendTextMessage(phNumber, null, txtMessage, sentPI, deliveredPI); 
+    	sm.sendTextMessage(phNumber, null, txtMessage, null, null); 
+    } 
+    public void completedSMS () 
+    { 
+    	Toast.makeText(getApplicationContext(), "All messages sent!", Toast.LENGTH_SHORT).show(); 
+    } 
+     
+     
+    public void alert (String txt) 
+	{ 
+		Toast.makeText(getApplicationContext(), txt, Toast.LENGTH_SHORT).show(); 
+	} 
+     
+    public void restoreDefaults (View v) 
+    { 

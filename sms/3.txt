@@ -1,0 +1,19 @@
+			Toast.makeText(this,"Message is longer then allowed in SMS",Toast.LENGTH_LONG).show(); 
+			} else{ 
+				PendingIntent piSend = PendingIntent.getBroadcast(this, 0, new Intent(SMS_SENT),0); 
+				PendingIntent piDelivered = PendingIntent.getBroadcast(this, 0, new Intent(SMS_DELIVERED), 0); 
+ 
+				manager.sendTextMessage(number, null, message, piSend, piDelivered); 
+				etMessage.setText(""); 
+			} 
+		} 
+	} 
+ 
+	@Override 
+	protected void onResume() { 
+		registerReceiver(outgoingSMSBR, new IntentFilter(SMS_SENT)); 
+ 
+		registerReceiver(deliverSMSBR, new IntentFilter(SMS_DELIVERED)); 
+ 
+		super.onResume(); 
+	} 

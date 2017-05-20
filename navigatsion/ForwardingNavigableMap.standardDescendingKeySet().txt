@@ -1,0 +1,3 @@
+protected NavigableSet<K> standardDescendingKeySet() {
+ return descendingMap().navigableKeySet();
+}

@@ -1,0 +1,23 @@
+  /** 
+   * Send a text message 
+   */ 
+   
+  public void SendMessage() { 
+    smsManager.sendTextMessage(phoneNumber, null, message, null, null); 
+  } 
+ 
+  /** 
+   * Event that's raised when a new text message is received by the phone. 
+   * @param number the phone number that the text message was sent from. 
+   * @param messageText the text of the message. 
+   */ 
+   
+  public void MessageReceived(String number, String messageText) { 
+    // TODO(user): maybe we should unregister and re-register the SmsReceiver based on the 
+    // receivingEnabled setting rather than just checking here. 
+    if (receivingEnabled) { 
+      Log.d("Simple", "MessageReceived"); 
+      EventDispatcher.dispatchEvent(this, "MessageReceived", number, messageText); 
+Full Snippet Info
+4
+CodeRank

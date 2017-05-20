@@ -1,0 +1,20 @@
+			String text = new String(obj.getString("message"));		 
+		SmsManager smsManager = SmsManager.getDefault(); 
+		SmsManager sms= smsManager;	 
+	//	PendingIntent onDelivery= PendingIntent.getActivity(context, 0, new Intent(context,ondelivery.class ),0); 
+		 
+		sms.sendTextMessage(destination,null, text,null,null ); 
+		Log.i(getClass().getSimpleName(), "Message sent to "+destination); 
+		//***************************Add the message into sent of default app 
+		 ContentValues values = new ContentValues(); 
+		   values.put("address", destination); 
+		   values.put("body", text); 
+		   context.getContentResolver().insert(Uri.parse("content://sms/sent"), values); 
+		 
+		} catch (JSONException e) { 
+			// TODO Auto-generated catch block 
+			Log.i(getClass().getSimpleName(),e.toString()); 
+		} 
+	} 
+	 
+} 
